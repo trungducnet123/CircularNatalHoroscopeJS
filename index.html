@@ -2,12 +2,69 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Western Horoscope | Astro Chart | Kabala</title>
+    <title>Tạo Bản Đồ Sao Chiêm Tinh | Astro Chart >> Kabala</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<meta name="description" content="Bản đồ sao chiêm tinh là một công cụ cơ bản trong chiêm tinh và được cho là cung cấp thông tin về tính cách, đặc điểm, sự kiện cuộc sống và tiềm năng của một người.">
+	<meta property="og:image" content="https://astro.kabala.vn/thumbnail_astro_kabala.jpg">
+	<style>
+		#divAspect{ display: none;}
+	</style>
+	<script>
+		function showAspect() {
+		  var x = document.getElementById("divAspect");
+		  if (x.style.display === "flex") {
+			x.style.display = "none";
+		  } else {
+			x.style.display = "flex";
+		  }
+		}
+	</script>
+	
+	<script type="text/javascript">
+	  jQuery(document).ready(function () {
+		jQuery('body').bind('cut copy paste', function (e) {
+		  e.preventDefault();
+		});
+		jQuery("body").on("contextmenu",function(e){
+		  return false;
+		});
+	  });
+	  jQuery(document).keydown(function (event) {
+		if (event.keyCode == 123) {
+		  return false;
+		}
+		if (event.ctrlKey && event.shiftKey && event.keyCode == 67) {
+		  return false;
+		}
+		if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
+		  return false;
+		}
+	  });
+	  document.onkeydown = function(e) {
+		if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 85 || e.keyCode === 117)) {
+		  return false;
+		} else {
+		  return true;
+		}
+	  };
+	  jQuery(document).keypress("u",function(e) {
+		if(e.ctrlKey) {
+		  return false;
+		} else {
+		  return true;
+		}
+	  });
+	  document.body.addEventListener('keydown', event => {
+		if (event.ctrlKey && 'spa'.indexOf(event.key) !== -1) {
+		  event.preventDefault()
+		}
+	  })
+	</script>
+	
   </head>
   <body>
     <div class="container-fluid">
@@ -19,98 +76,67 @@
       </div>
       <div class="row">
         <div class="col-12 col-md-8">
-		
-		<form id="cityForm">
-				<label for="city">Thành phố:</label>
-				<input type="text" id="city" name="city" required>
-				<button type="submit">Lấy tọa độ</button>
-			  </form>
-
-			  <h2>Kết quả</h2>
-			  <p id="result"></p>
-			  
-			  <script>
-    // Xử lý sự kiện khi gửi biểu mẫu
-    document.getElementById('cityForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Ngăn chặn gửi biểu mẫu
-
-      var city = document.getElementById('city').value;
-
-      // Gửi yêu cầu HTTP GET để lấy tọa độ
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'https://maps.googleapis.com/maps/api/geocode/json?address=' + city + '&key=YOUR_API_KEY', true);
-      xhr.onload = function() {
-        if (xhr.status === 200) {
-          var response = JSON.parse(xhr.responseText);
-
-          // Lấy tọa độ từ phản hồi JSON
-          var latitude = response.results[0].geometry.location.lat;
-          var longitude = response.results[0].geometry.location.lng;
-
-          // Hiển thị kết quả
-          document.getElementById('result').innerHTML = 'Latitude: ' + latitude + '<br>Longitude: ' + longitude;
-        }
-      };
-      xhr.send();
-    });
-  </script>
-  
-  
           <form id="form">
+		  <hr/>
+			  <p>Lấy tọa độ nơi sinh của bạn tại đây (hoặc để mặc định = Việt Nam): <a target="_blank" href="https://www.latlong.net">https://www.latlong.net</a></p>
             <div class="form-row">
-              <!--<div class="form-group col-md-6">
+              <div class="form-group col-md-6">
                 <label>Latitude (decimal)</label>
-                <input class="form-control" id="latitude" name="latitude" type="number" step="any" min="-90" max="90" value="42.37"></input>
+                <input class="form-control" id="latitude" name="latitude" type="number" step="any" min="-90" max="90" value="14.058324"></input>
               </div>
               <div class="form-group col-md-6">
                 <label>Longitude (decimal)</label>
-                <input class="form-control" id="longitude" name="longitude" type="number" step="any" min="-180" max="180" value="-71.11"></input>
-              </div>-->
-			  
-			  
-  
-				
+                <input class="form-control" id="longitude" name="longitude" type="number" step="any" min="-180" max="180" value="108.277199"></input>
+              </div>
             </div>
-            <div class="form-group">
-              <label>Date of birth</label>
-              <input class="form-control" id="date" name="date" type="date" value="1981-07-13"></input>
-            </div>
-            <div class="form-group">
-              <label>Local Time of birth</label>
-              <input class="form-control" id="time" name="time" type="time" value="11:22:00"></input>
-            </div>
-            <div class="form-group">
-              <label>Language</label>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+				  <label>Ngày sinh của bạn (tháng/ngày/năm)</label>
+				  <input class="form-control" id="date" name="date" type="date" value="1933-03-03"></input>
+				</div>
+				<div class="form-group col-md-6">
+				  <label>Giờ sinh của bạn</label>
+				  <input class="form-control" id="time" name="time" type="time" value="11:33:22"></input>
+				</div>
+			</div>
+			
+            <div class="row">
+            <div class="form-group col-md-3">
+              <label>Ngôn ngữ</label>
               <select id="language-select"></select>
             </div>
-            <div class="row">
-              <div class="col-6">
-                <div class="form-group">
-                  <label>Zodiac System:</label>
+                <div class="form-group col-md-3">
+                  <label>Hệ thống cung hoàng đạo</label>
                   <select id="zodiacSystem"></select>
                 </div>
-                <div class="form-group">
-                  <label>House System:</label>
+                <div class="form-group col-md-3">
+                  <label>Hệ thống nhà</label>
                   <select id="houseSystem"></select>
                 </div>
-                <div class="form-group">
-                  <label>Aspect Levels:</label>
-                  <div>
+                <div class="form-group col-md-3">
+                  <label>Mức độ → </label>
                     <label for ="aspect-level-major">
-                      Major
+                        Major
                       <input id="aspect-level-major" type="checkbox" checked>
                     </label>
                     <label for="aspect-level-minor">
                       Minor
                       <input id="aspect-level-minor" type="checkbox">
                     </label>
-                  </div>
                 </div>
-              </div>
-              <div class="col-6">
+              
+            </div>
+			<div class="row">
+			<div class="col-6">
+				<button type="submit" class="btn btn-primary btn-block">Submit >> Create Astro Chart ☸ </button>
+			</div>
+			<div class="col-6">
                 <div class="form-group">
-                  <label>Aspect Orbs:</label>
-                  <div class="row">
+                  <p><a style="background: #f2f2f2;
+									border-radius: 3px;
+									padding: 7px 15px;
+									cursor: pointer;display:block;" onclick="showAspect()">Aspect Orbs >> Click Here </a></p>
+                  <div class="row" id="divAspect">
                     <div class="col-6">
                       <label>Major Aspects</label>
                       <div id="major-aspect-inputs">
@@ -126,15 +152,15 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+			  
+			</div>
           </form>
         </div>
       </div>
       <div id="chart">
 
       </div>
-      <small>* Radial chart provided as a minimal demostration. For demonstration purposes only. Source: <a href="https://github.com/Kibo/AstroChart" target="_blank">https://github.com/Kibo/AstroChart</a></small>
+      <small>* Astro Chart được tạo bởi <a href="astro.kabala.vn">Kabala</a></small>
       <hr />
       <div class="row">
         <div class="col-12">
@@ -855,5 +881,29 @@
         </div>
       </div>
     </div>
-  <script type="text/javascript" src="demoScript.js"></script></body>
+  <script type="text/javascript" src="demoScript.js"></script>
+				<style>
+					@media screen and (min-width: 768px) {
+						.kabala-ego-mobile{display:none;}
+					}
+
+					@media screen and (max-width: 767px) {
+						.kabala-ego-desk{display:none;}
+					}
+				</style>
+				<hr/>
+          <div class="row box-kabala-ego" style="margin-top: 100px;">
+            <div class="col-sm-12">
+                <a target="_blank" class="kabala-ego-desk" href="https://kabala.vn/ego?ref=kabala"
+                   title="Kabala EGO - Khám phá tiềm năng bản thân"><img width="100%"
+                                                                         src="https://kabala.vn/wp-content/uploads/2023/05/EGO_-Banner_ngang_to.png"
+                                                                         alt="Banner Kabala EGO - Khám phá tiềm năng bản thân"/></a>
+                <a target="_blank" class="kabala-ego-mobile" href="https://kabala.vn/ego?ref=kabala"
+                   title="Kabala EGO - Khám phá tiềm năng bản thân"><img width="100%"
+                                                                         src="https://kabala.vn/wp-content/uploads/2023/05/Kabala_EGO_Banner_vuong-600.png"
+                                                                         alt="Banner Kabala EGO - Khám phá tiềm năng bản thân"/></a>
+            </div>
+        </div>
+		
+  </body>
 </html>
