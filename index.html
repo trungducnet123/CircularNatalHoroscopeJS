@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Tạo Bản Đồ Sao Chiêm Tinh | Astro Chart >> Kabala</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -12,14 +12,22 @@
 	<meta property="og:image" content="https://astro.kabala.vn/thumbnail_astro_kabala.jpg">
 	<style>
 		#divAspect{ display: none;}
+		
+		#divAspect2{ display: none;}
 	</style>
 	<script>
 		function showAspect() {
-		  var x = document.getElementById("divAspect");
+		  var x = document.getElementById("divAspect");		  
+		  var y = document.getElementById("divAspect2");
 		  if (x.style.display === "flex") {
 			x.style.display = "none";
 		  } else {
 			x.style.display = "flex";
+		  }
+		  if (y.style.display === "block") {
+			y.style.display = "none";
+		  } else {
+			y.style.display = "block";
 		  }
 		}
 	</script>
@@ -127,10 +135,17 @@
               
             </div>
 			<div class="row">
-			<div class="col-6">
+			<div class="col-12 col-md-6">
 				<button type="submit" class="btn btn-primary btn-block">Submit >> Create Astro Chart ☸ </button>
+				
+					<div id="divAspect2" class="desc Aspect-Orbs">
+						<p>Mục&nbsp;đ&iacute;ch của việc sử dụng Aspect Orbs l&agrave; đ&aacute;nh gi&aacute; t&aacute;c động v&agrave; sự tương t&aacute;c giữa c&aacute;c yếu tố trong bản đồ Natal Chart. Ch&uacute;ng gi&uacute;p x&aacute;c định mức độ mạnh hay yếu của một kh&iacute;a cạnh v&agrave; cung cấp th&ocirc;ng tin về c&aacute;ch m&agrave; c&aacute;c yếu tố n&agrave;y c&oacute; thể ảnh hưởng đến cuộc sống v&agrave; t&iacute;nh c&aacute;ch của một người.</p>
+<p>Cấu h&igrave;nh Aspect Orbs l&agrave; một phần quan trọng trong việc đọc v&agrave; ph&acirc;n t&iacute;ch một bản đồ Natal Chart. Tuy nhi&ecirc;n, kh&ocirc;ng c&oacute; một cấu h&igrave;nh cụ thể v&agrave; ch&iacute;nh thức n&agrave;o cho Aspect Orbs m&agrave; ph&ugrave; hợp cho tất cả mọi người. Mỗi nh&agrave; chi&ecirc;m tinh v&agrave; người đọc bản đồ c&oacute; thể c&oacute; cấu h&igrave;nh ri&ecirc;ng dựa tr&ecirc;n kinh nghiệm v&agrave; sở th&iacute;ch c&aacute; nh&acirc;n.</p>
+<p>Cấu h&igrave;nh Aspect Orbs thường được x&aacute;c định bằng c&aacute;ch đo khoảng c&aacute;ch giữa c&aacute;c yếu tố trong bản đồ v&agrave; x&aacute;c định mức độ chấp nhận được cho mỗi kh&iacute;a cạnh. V&iacute; dụ, một cấu h&igrave;nh th&ocirc;ng thường c&oacute; thể sử dụng Aspect Orbs trong khoảng từ 3 đến 5 độ cho c&aacute;c kh&iacute;a cạnh ch&iacute;nh như Conjunction, Trine v&agrave; Square, trong khi Aspect Orbs nhỏ hơn c&oacute; thể được sử dụng cho c&aacute;c kh&iacute;a cạnh như Sextile.</p>
+<p>Điều quan trọng l&agrave; tu&acirc;n theo một cấu h&igrave;nh nhất định v&agrave; &aacute;p dụng n&oacute; một c&aacute;ch nhất qu&aacute;n trong việc đọc c&aacute;c kh&iacute;a cạnh trong bản đồ Natal Chart. Điều n&agrave;y gi&uacute;p đảm bảo t&iacute;nh nhất qu&aacute;n v&agrave; đ&aacute;ng tin cậy trong việc ph&acirc;n t&iacute;ch v&agrave; giải m&atilde; c&aacute;c yếu tố trong biểu đồ.</p>
+					</div>
 			</div>
-			<div class="col-6">
+			<div class="col-12 col-md-6">
                 <div class="form-group">
                   <p><a style="background: #f2f2f2;
 									border-radius: 3px;
@@ -149,12 +164,6 @@
 
                       </div>
                     </div>
-					<div class="desc Aspect-Orbs">
-						<p>Mục&nbsp;đ&iacute;ch của việc sử dụng Aspect Orbs l&agrave; đ&aacute;nh gi&aacute; t&aacute;c động v&agrave; sự tương t&aacute;c giữa c&aacute;c yếu tố trong bản đồ Natal Chart. Ch&uacute;ng gi&uacute;p x&aacute;c định mức độ mạnh hay yếu của một kh&iacute;a cạnh v&agrave; cung cấp th&ocirc;ng tin về c&aacute;ch m&agrave; c&aacute;c yếu tố n&agrave;y c&oacute; thể ảnh hưởng đến cuộc sống v&agrave; t&iacute;nh c&aacute;ch của một người.</p>
-<p>Cấu h&igrave;nh Aspect Orbs l&agrave; một phần quan trọng trong việc đọc v&agrave; ph&acirc;n t&iacute;ch một bản đồ Natal Chart. Tuy nhi&ecirc;n, kh&ocirc;ng c&oacute; một cấu h&igrave;nh cụ thể v&agrave; ch&iacute;nh thức n&agrave;o cho Aspect Orbs m&agrave; ph&ugrave; hợp cho tất cả mọi người. Mỗi nh&agrave; chi&ecirc;m tinh v&agrave; người đọc bản đồ c&oacute; thể c&oacute; cấu h&igrave;nh ri&ecirc;ng dựa tr&ecirc;n kinh nghiệm v&agrave; sở th&iacute;ch c&aacute; nh&acirc;n.</p>
-<p>Cấu h&igrave;nh Aspect Orbs thường được x&aacute;c định bằng c&aacute;ch đo khoảng c&aacute;ch giữa c&aacute;c yếu tố trong bản đồ v&agrave; x&aacute;c định mức độ chấp nhận được cho mỗi kh&iacute;a cạnh. V&iacute; dụ, một cấu h&igrave;nh th&ocirc;ng thường c&oacute; thể sử dụng Aspect Orbs trong khoảng từ 3 đến 5 độ cho c&aacute;c kh&iacute;a cạnh ch&iacute;nh như Conjunction, Trine v&agrave; Square, trong khi Aspect Orbs nhỏ hơn c&oacute; thể được sử dụng cho c&aacute;c kh&iacute;a cạnh như Sextile.</p>
-<p>Điều quan trọng l&agrave; tu&acirc;n theo một cấu h&igrave;nh nhất định v&agrave; &aacute;p dụng n&oacute; một c&aacute;ch nhất qu&aacute;n trong việc đọc c&aacute;c kh&iacute;a cạnh trong bản đồ Natal Chart. Điều n&agrave;y gi&uacute;p đảm bảo t&iacute;nh nhất qu&aacute;n v&agrave; đ&aacute;ng tin cậy trong việc ph&acirc;n t&iacute;ch v&agrave; giải m&atilde; c&aacute;c yếu tố trong biểu đồ.</p>
-					</div>
                   </div>
                 </div>
               </div>
@@ -1078,7 +1087,7 @@
 						.kabala-ego-desk{display:none;}
 					}
 					.desc{font-size:14px; color:#333; font-style:italic;}
-					.Aspect-Orbs{  background: #f2f2f2; margin-top:20px; border-radius:5px;
+					.Aspect-Orbs{  background: #f2f2f2; margin:20px 0px; border-radius:5px;
     padding: 20px;}
 				</style>
 				<hr/>
