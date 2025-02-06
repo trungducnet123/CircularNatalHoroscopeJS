@@ -1,0 +1,31 @@
+body {
+    background-color: #f4f4f4;
+}
+.container {
+    margin-top: 50px;
+}
+table {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+th, td {
+    text-align: center;
+    padding: 15px;
+}
+th {
+    background-color: #343a40;
+    color: white;
+}
+td {
+    background-color: #f8f9fa;
+}
+input[type="date"] {
+    margin-bottom: 20px;
+}
+maha{
+    color:red;
+}
+antar{
+    color:green;
+}

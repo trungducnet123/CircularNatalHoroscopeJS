@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Astro Veda / Numerology - Tạo Lá Số Chiêm Tinh Vệ Đà </title>
+	<meta name="description" content="Chiêm tinh Vệ Đà (Vedic astrology), hay còn gọi là Jyotish trong tiếng Phạn, là hệ thống chiêm tinh học cổ xưa bắt nguồn từ Ấn Độ.">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+    <style rel="stylesheet" ahref="style.css"></style>
+</head>
+<body onload="load()">
+
+    <div class="container">
+        <br>
+        <h1 class="text-center">Astro Veda / Numerology</h1>
+
+        <!-- Date Input -->
+        <form class="text-center">
+            <div class="form-group">
+                <label for="birthdate">Birthdate:</label>
+                <input type="date" class="form-control w-50 mx-auto" id="birthdate">
+            </div>
+            <p id="info"></p>
+        </form>
+
+        <!-- Stylish 3x3 Table -->
+        <table class="table table-bordered w-75 mx-auto" id="god">
+            <tbody>
+                <tr>
+                    <td id="three">&nbsp;</td>
+                    <td id="one">&nbsp;</td>
+                    <td id="nine">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td id="six">&nbsp;</td>
+                    <td id="seven">&nbsp;</td>
+                    <td id="five">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td id="two">&nbsp;</td>
+                    <td id="eight">&nbsp;</td>
+                    <td id="four">&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="number" class="form-control" id="inputyear"><br>
+        <button onclick="basic()" class="btn btn-success" style="text-align: center;" id="mainbutton">Find</button>
+        <br>
+        <p>*Mahadasha is in red and Antardasha is in blue</p>
+        <hr>
+        <div id="tableContainer"></div>
+        <br>
+		<hr/>
+		<div class="content">
+			<p><strong><a href="http://astro.kabala.vn/veda/">Chi&ecirc;m tinh Vệ Đ&agrave;</a> (Vedic astrology)</strong>, hay c&ograve;n gọi l&agrave; <strong>Jyotish</strong> trong tiếng Phạn, l&agrave; hệ thống chi&ecirc;m tinh học cổ xưa bắt nguồn từ Ấn Độ. N&oacute; được coi l&agrave; một trong s&aacute;u &ldquo;Vedanga&rdquo; (lĩnh vực bổ trợ cho kinh Vệ Đ&agrave;) v&agrave; c&oacute; lịch sử h&agrave;ng ngh&igrave;n năm, gắn liền với nền văn ho&aacute; &ndash; t&ocirc;n gi&aacute;o Ấn Độ. Dưới đ&acirc;y l&agrave; một số điểm nổi bật:</p>
+	<ol>
+	  <li>
+		<p><strong>Nguồn gốc v&agrave; nền tảng</strong></p>
+		<ul>
+		  <li>Chi&ecirc;m tinh Vệ Đ&agrave; dựa tr&ecirc;n c&aacute;c văn bản cổ xưa như kinh Vệ Đ&agrave; (Vedas), Upanishads v&agrave; đặc biệt l&agrave; c&aacute;c t&aacute;c phẩm chi&ecirc;m tinh học, thi&ecirc;n văn học Ấn Độ.</li>
+		  <li>Từ &ldquo;Jyotish&rdquo; bắt nguồn từ gốc từ &ldquo;jyoti&rdquo; (nghĩa l&agrave; &ldquo;&aacute;nh s&aacute;ng&rdquo;), nhấn mạnh tầm quan trọng của &aacute;nh s&aacute;ng vũ trụ v&agrave; c&aacute;c thi&ecirc;n thể đối với cuộc sống con người.</li>
+		</ul>
+	  </li>
+	  <li>
+		<p><strong>Hệ thống lịch &ndash; thi&ecirc;n văn</strong></p>
+		<ul>
+		  <li>Vedic astrology sử dụng <strong>&ldquo;zodiac sideral&rdquo; (ho&agrave;ng đạo theo sao)</strong>, tức l&agrave; dựa v&agrave;o vị tr&iacute; thực tế của c&aacute;c ch&ograve;m sao tr&ecirc;n bầu trời, thay v&igrave; &ldquo;zodiac nhiệt đới&rdquo; (tropical zodiac) trong chi&ecirc;m tinh học phương T&acirc;y.</li>
+		  <li>Bảng sao (natal chart) theo Chi&ecirc;m tinh Vệ Đ&agrave; ch&uacute; trọng đến vị tr&iacute; của Mặt Trăng nhiều hơn, bởi v&igrave; Mặt Trăng được coi l&agrave; đại diện cho t&acirc;m tr&iacute; v&agrave; cảm x&uacute;c của con người, c&oacute; ảnh hưởng lớn tới vận mệnh.</li>
+		</ul>
+	  </li>
+	  <li>
+		<p><strong>C&aacute;c kh&aacute;i niệm cơ bản</strong></p>
+		<ul>
+		  <li><strong>12 cung Ho&agrave;ng đạo (Rashi)</strong>: tương ứng với 12 ch&ograve;m sao, d&ugrave; t&ecirc;n gọi c&oacute; thể giống như trong chi&ecirc;m tinh phương T&acirc;y (Bạch Dương, Kim Ngưu, Song Tử&hellip;), nhưng được t&iacute;nh theo vị tr&iacute; thực của c&aacute;c ch&ograve;m sao v&agrave;o l&uacute;c sinh.</li>
+		  <li><strong>9 h&agrave;nh tinh (Graha)</strong>: bao gồm Mặt Trời, Mặt Trăng, Sao Hỏa, Sao Thủy, Sao Mộc, Sao Kim, Sao Thổ, v&agrave; hai điểm n&uacute;t Rahu, Ketu (giao điểm Mặt Trăng) &ndash; hai yếu tố đặc trưng trong chi&ecirc;m tinh Ấn Độ.</li>
+		  <li><strong>12 nh&agrave; (Bhava)</strong>: mỗi nh&agrave; tượng trưng cho một lĩnh vực trong cuộc sống (gia đ&igrave;nh, sự nghiệp, t&agrave;i ch&iacute;nh, h&ocirc;n nh&acirc;n, sức khỏe, v.v.).</li>
+		</ul>
+	  </li>
+	  <li>
+		<p><strong>Mục đ&iacute;ch v&agrave; ứng dụng</strong></p>
+		<ul>
+		  <li>Chi&ecirc;m tinh Vệ Đ&agrave; thường được d&ugrave;ng để <strong>xem ng&agrave;y tốt &ndash; xấu</strong> (muhurat) cho c&aacute;c sự kiện quan trọng như cưới hỏi, x&acirc;y nh&agrave;, khởi sự kinh doanh&hellip;</li>
+		  <li>D&ugrave;ng để <strong>luận đo&aacute;n t&iacute;nh c&aacute;ch</strong>, dự b&aacute;o những giai đoạn thăng trầm trong cuộc đời dựa tr&ecirc;n chu kỳ &ldquo;Dasha&rdquo; (c&aacute;c giai đoạn h&agrave;nh tinh).</li>
+		  <li>Một số người c&ograve;n xem chi&ecirc;m tinh Vệ Đ&agrave; như c&ocirc;ng cụ <strong>hướng dẫn tinh thần</strong>, gắn với niềm tin t&ocirc;n gi&aacute;o, nghi lễ c&uacute;ng dường v&agrave; &ldquo;giải hạn&rdquo; bằng c&aacute;c nghi thức đặc biệt.</li>
+		</ul>
+	  </li>
+	  <li>
+		<p><strong>Điểm kh&aacute;c biệt với chi&ecirc;m tinh phương T&acirc;y</strong></p>
+		<ul>
+		  <li>Lấy <strong>Mặt Trăng</strong> l&agrave;m trọng t&acirc;m trong việc luận giải (thay v&igrave; Mặt Trời như ở phương T&acirc;y).</li>
+		  <li>Sử dụng <strong>ho&agrave;ng đạo theo sao (Sidereal Zodiac)</strong>, phản &aacute;nh đ&uacute;ng vị tr&iacute; c&aacute;c ch&ograve;m sao tr&ecirc;n bầu trời thực tế.</li>
+		  <li>Hệ thống <strong>Rahu</strong> v&agrave; <strong>Ketu</strong> (hai n&uacute;t Mặt Trăng) được ch&uacute; trọng, đ&oacute;ng vai tr&ograve; quan trọng trong việc giải th&iacute;ch những vấn đề &ldquo;nghiệp lực&rdquo; v&agrave; biến cố cuộc đời.</li>
+		</ul>
+	  </li>
+	</ol>
+	<p>T&oacute;m lại, <strong>Chi&ecirc;m tinh Vệ Đ&agrave;</strong> l&agrave; một truyền thống chi&ecirc;m tinh l&acirc;u đời, c&oacute; ảnh hưởng mạnh mẽ ở Ấn Độ v&agrave; được nhiều người tr&ecirc;n thế giới quan t&acirc;m. N&oacute; gắn kết chặt chẽ với t&acirc;m linh, t&ocirc;n gi&aacute;o v&agrave; văn h&oacute;a, gi&uacute;p l&yacute; giải vận mệnh, t&iacute;nh c&aacute;ch v&agrave; đưa ra c&aacute;c lời khuy&ecirc;n dựa tr&ecirc;n vị tr&iacute; c&aacute;c thi&ecirc;n thể.</p>
+		</div>
+		</div>
+		<hr/>
+		<div id="kabala-intro" style="margin:20px;"></div>
+		<script src="https://tuvi.kabala.vn/js/kabala-text.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="bruh.js"></script>
+    
+    <script src="main.js"></script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

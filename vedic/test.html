@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sign-In</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+</head>
+<body>
+    <form id="verify-form">
+        <input type="text" id="user-name" placeholder="Your Name" required />
+        <input type="email" id="user-email" placeholder="Your Email" required />
+        <button type="submit">Send Verification Code</button>
+    </form>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "Ev04bSQQZhPJyLhBc",
+      });
+   })();
+</script>
+
+</script>
+
+
+    <script>
+        //  const firebaseConfig = {
+        //         apiKey: "AIzaSyD5FHdRtRtAZHVAdaXOTIAG7qPVJApzOFk",
+        //         authDomain: "stock-fd93b.firebaseapp.com",
+        //         databaseURL:"https://stock-fd93b-default-rtdb.firebaseio.com",
+        //         projectId: "stock-fd93b",
+        //         storageBucket: "stock-fd93b.appspot.com",
+        //         messagingSenderId: "545670483992",
+        //         appId: "1:545670483992:web:2665cfd669b86bc662f36d",
+        //     };
+        //     firebase.initializeApp(firebaseConfig);
+              
+    </script>
+
+<script type="text/javascript">
+     const firebaseConfig = {
+                apiKey: "AIzaSyD5FHdRtRtAZHVAdaXOTIAG7qPVJApzOFk",
+                authDomain: "stock-fd93b.firebaseapp.com",
+                databaseURL:"https://stock-fd93b-default-rtdb.firebaseio.com",
+                projectId: "stock-fd93b",
+                storageBucket: "stock-fd93b.appspot.com",
+                messagingSenderId: "545670483992",
+                appId: "1:545670483992:web:2665cfd669b86bc662f36d",
+            };
+            firebase.initializeApp(firebaseConfig);
+        
+    verificationCode = "";
+    // Initialize EmailJS
+    emailjs.init("Ev04bSQQZhPJyLhBc"); // Replace with your EmailJS user ID
+
+    document.getElementById('verify-form').addEventListener('submit', function(event) {
+        event.preventDefault();  // Prevent default form submission
+
+        // Generate a random 6-digit verification code
+        const verificationCode = Math.floor(100000 + Math.random() * 900000).toString();
+
+        // Send email using EmailJS
+        emailjs.send("service_c8a4v6g", "template_kex9vll", {
+            //name: document.getElementById('user-name').value,
+            verification_code: verificationCode,  // Send dynamic verification code
+            email: document.getElementById('user-email').value
+        }).then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            alert('Verification code sent successfully!');
+        }, function(error) {
+    
+            alert('Failed to send verification code.');
+        });
+    });
+
+</script>
+</body>
+</html>
